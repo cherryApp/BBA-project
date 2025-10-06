@@ -190,7 +190,7 @@ $best_practices_data = array(
 <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
     <div class="max-w-7xl mx-auto">
         <div class="text-center mb-12">
-            <h3 class="text-3xl font-bold text-gray-900 mb-4">
+            <h3 style="color: rgb(55, 55, 55)" class="text-3xl font-bold text-gray-900 mb-4">
                 <?php esc_html_e('Leggyakoribb digitális fenyegetések', 'lovable-theme'); ?>
             </h3>
             <p class="text-gray-600 max-w-2xl mx-auto">
