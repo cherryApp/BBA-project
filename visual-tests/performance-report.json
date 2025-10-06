@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-10-06T13:20:48.561Z",
+  "wordpress": {
+    "loadTime": 634,
+    "url": "http://localhost:8082/"
+  },
+  "nextjs": {
+    "loadTime": 577,
+    "url": "http://localhost:8080/"
+  },
+  "comparison": {
+    "difference": 57,
+    "wordpressFaster": false
+  }
+}
