@@ -42,7 +42,7 @@ Additional styles beyond the base style.css
     transform: scale(1.05);
 }
 
-/* Enhanced Card Styles */
+/* Enhanced Card Styles - Template Design Match */
 .threat-card {
     background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
     border-left: 4px solid var(--color-blue-600);
@@ -60,6 +60,63 @@ Additional styles beyond the base style.css
 
 .threat-card.medium-severity {
     border-left-color: #f59e0b;
+}
+
+/* Template-specific enhancements */
+.template-card-enhanced {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -1px rgb(0 0 0 / 0.06);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgb(229 231 235);
+}
+
+.template-card-enhanced:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04);
+}
+
+/* Target group enhancements */
+.target-group-card {
+    padding: 2rem 1.5rem;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    transition: all 0.3s ease;
+}
+
+.target-group-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* Hero section background pattern */
+.hero-pattern-overlay {
+    background-image: url('../images/background-pattern.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+}
+
+/* Status badge enhancements */
+.status-badge-new {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+}
+
+.status-badge-active {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+}
+
+/* Section spacing to match template */
+.template-section-spacing {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
 /* Custom Search Form */

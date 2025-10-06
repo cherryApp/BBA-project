@@ -201,39 +201,59 @@ function lovable_get_severity_class($severity) {
     }
 }
 
-// Display threat card
+// Get threat status badge class - matches template design
+function lovable_get_status_class($status) {
+    switch (strtolower($status)) {
+        case 'új':
+        case 'new':
+            return 'bg-red-500 text-white';
+        case 'aktív':
+        case 'active':
+            return 'bg-orange-500 text-white';
+        case 'magas':
+        case 'high':
+            return 'bg-red-500 text-white';
+        case 'közepes':
+        case 'medium':
+            return 'bg-orange-500 text-white';
+        default:
+            return 'bg-gray-500 text-white';
+    }
+}
+
+// Display threat card - Updated to match template design with status badges
 function lovable_display_threat_card($threat_data) {
-    $severity = $threat_data['severity'] ?? 'medium';
-    $severity_class = lovable_get_severity_class($severity);
+    $status = $threat_data['status'] ?? $threat_data['severity'] ?? 'medium';
+    $status_class = lovable_get_status_class($status);
     ?>
     <div class="card hover:shadow-lg transition-shadow">
         <div class="card-header">
-            <div class="flex items-start justify-between">
+            <div class="flex items-start justify-between mb-4">
                 <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
                         <?php if (!empty($threat_data['icon'])): ?>
                             <span class="icon text-red-600"><?php echo wp_kses_post($threat_data['icon']); ?></span>
                         <?php endif; ?>
                     </div>
-                    <h3 class="card-title text-xl"><?php echo esc_html($threat_data['title']); ?></h3>
+                    <h3 class="card-title text-xl font-semibold"><?php echo esc_html($threat_data['title']); ?></h3>
                 </div>
-                <span class="badge <?php echo esc_attr($severity_class); ?>">
-                    <?php echo esc_html($severity); ?>
+                <span class="badge <?php echo esc_attr($status_class); ?> px-3 py-1 text-xs font-semibold rounded-full">
+                    <?php echo esc_html($status); ?>
                 </span>
             </div>
-            <p class="card-description text-base">
+            <p class="card-description text-base text-gray-600 mb-4">
                 <?php echo esc_html($threat_data['description']); ?>
             </p>
         </div>
         <div class="card-content">
             <?php if (!empty($threat_data['tips']) && is_array($threat_data['tips'])): ?>
-                <div class="space-y-2">
-                    <h4 class="font-semibold text-green-700 mb-2">Védekezési tippek:</h4>
-                    <ul class="space-y-1">
+                <div class="space-y-3">
+                    <h4 class="font-semibold text-green-700 mb-3">Védekezési tippek:</h4>
+                    <ul class="space-y-2">
                         <?php foreach ($threat_data['tips'] as $tip): ?>
-                            <li class="flex items-start space-x-2">
-                                <div class="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                                <span class="text-sm text-gray-700"><?php echo esc_html($tip); ?></span>
+                            <li class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                                <span class="text-sm text-gray-700 leading-relaxed"><?php echo esc_html($tip); ?></span>
                             </li>
                         <?php endforeach; ?>
                     </ul>
